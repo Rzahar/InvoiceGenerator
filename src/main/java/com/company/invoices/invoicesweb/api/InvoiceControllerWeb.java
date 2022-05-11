@@ -1,6 +1,5 @@
-package com.company.invoices.invoicesweb.controller.web;
+package com.company.invoices.invoicesweb.api;
 
-import com.company.invoices.invoicesweb.controller.InvoiceControllerInterface;
 import com.company.invoices.invoicesweb.entity.Invoice;
 import com.company.invoices.invoicesweb.form.InvoiceForm;
 import com.company.invoices.invoicesweb.service.InvoiceServiceInterface;
@@ -15,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/invoice")
-public class InvoiceControllerWeb{
+public class InvoiceControllerWeb {
 
     @Autowired
     private InvoiceServiceInterface invoiceService;
@@ -28,11 +27,8 @@ public class InvoiceControllerWeb{
     public void setInvoiceService(InvoiceServiceInterface invoiceService) {
 
     }
-    public String createInvoice(org.example.core.entity.Invoice invoice) {
-        return null;
-    }
 
-    @PostMapping
+   /* @PostMapping
     public String createInvoice(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult result){
         if (result.hasErrors()){
             return "invoice-create-form";
@@ -54,7 +50,8 @@ public class InvoiceControllerWeb{
         return mv;
     }
 
-    @GetMapping("/{id}")
+    */
+   @GetMapping("/{id}")
     public ModelAndView displayInvoice(@PathVariable("id") String number) {
         System.out.println("Methode displayInvoice invoquée");
         ModelAndView mv = new ModelAndView("invoice-details");
@@ -63,8 +60,8 @@ public class InvoiceControllerWeb{
         return mv;
     }
 
-    @GetMapping("/create-form")
+/*    @GetMapping("/create-form")
     public String displayInvoiceCreateForm(@ModelAttribute InvoiceForm invoice){
         return "invoice-create-form";
-    }
+    }*/
 }
