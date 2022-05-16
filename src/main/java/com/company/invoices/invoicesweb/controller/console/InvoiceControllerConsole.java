@@ -19,17 +19,8 @@ public class InvoiceControllerConsole implements InvoiceControllerInterface {
         return invoiceService;
     }
 
-    public void setInvoiceService(InvoiceServiceInterface invoiceService) {
-        this.invoiceService = invoiceService;
-    }
-
     @Override
-    public String createInvoice(org.example.core.entity.Invoice invoice) {
-        return null;
-    }
-
-
-    public String createInvoice(Invoice invoice){
+    public String createInvoice(Invoice invoice) {
         System.out.println( "What is the customer name?" );
         Scanner sc=new Scanner(System.in);
         String customerName=sc.nextLine();
@@ -39,4 +30,20 @@ public class InvoiceControllerConsole implements InvoiceControllerInterface {
         invoiceService.createInvoice(invoice);
         return customerName;
     }
+
+    public void setInvoiceService(InvoiceServiceInterface invoiceService) {
+        this.invoiceService = invoiceService;
+    }
+
+
+  /*  public Invoice createInvoice(Invoice invoice){
+        System.out.println( "What is the customer name?" );
+        Scanner sc=new Scanner(System.in);
+        String customerName=sc.nextLine();
+        invoice = new Invoice();
+        invoice.setCustomerName(customerName);
+
+        invoiceService.createInvoice(invoice);
+        return customerName;
+    } */
 }

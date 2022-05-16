@@ -27,13 +27,5 @@ public class InvoiceControllerDouchette implements InvoiceControllerInterface {
 
     }
 
-    @Override
-    public String createInvoice(Invoice invoice) {
-        System.out.println("Usage of a scanner");
-        invoice = new Invoice();
-        invoice.setCustomerName("Nom issu de douchette Magasin");
-        invoiceService.createInvoice(invoice);
-        return null;
-    }
 
 }

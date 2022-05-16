@@ -11,9 +11,10 @@ import java.util.List;
 public class InvoiceRepositoryMemory implements InvoiceRepositoryInterface {
     private static List<Invoice> invoices = new ArrayList<>();
 
-    public void create(Invoice invoice) {
+    public Invoice create(Invoice invoice) {
         invoices.add(invoice);
         System.out.println("Facture créé  en mémoire pour le client " + invoice.getCustomerName() + " et la facture numéro " + invoice.getNumber());
+        return invoice;
     }
 
     @Override

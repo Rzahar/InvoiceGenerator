@@ -26,14 +26,11 @@ public class InvoiceControllerWeb{
 
 
     public void setInvoiceService(InvoiceServiceInterface invoiceService) {
-
-    }
-    public String createInvoice(org.example.core.entity.Invoice invoice) {
-        return null;
+    this.invoiceService = invoiceService;
     }
 
-    @PostMapping
-    public String createInvoice(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult result){
+   @PostMapping
+    public String create(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult result){
         if (result.hasErrors()){
             return "invoice-create-form";
         }
@@ -46,22 +43,22 @@ public class InvoiceControllerWeb{
     }
 
 
-    @GetMapping("/home")
+ /*   @GetMapping("/home")
     public ModelAndView displayHome() {
         System.out.println("Methode Home invoquée");
         ModelAndView mv = new ModelAndView("invoice-home");
         mv.addObject("invoices",invoiceService.getInvoiceList());
         return mv;
-    }
+    } */
 
-    @GetMapping("/{id}")
+   /* @GetMapping("/{id}")
     public ModelAndView displayInvoice(@PathVariable("id") String number) {
         System.out.println("Methode displayInvoice invoquée");
         ModelAndView mv = new ModelAndView("invoice-details");
         mv.addObject("invoice",invoiceService.getInvoiceByNumber(number));
   //      List<Invoice> invoices = invoiceService.getInvoiceList();
         return mv;
-    }
+    }*/
 
     @GetMapping("/create-form")
     public String displayInvoiceCreateForm(@ModelAttribute InvoiceForm invoice){

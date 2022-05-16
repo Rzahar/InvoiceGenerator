@@ -9,5 +9,4 @@ public interface InvoiceControllerInterface {
 
     void setInvoiceService(InvoiceServiceInterface invoiceService);
 
-    String createInvoice(org.example.core.entity.Invoice invoice);
 }

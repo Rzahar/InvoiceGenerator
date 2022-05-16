@@ -3,13 +3,15 @@ package com.company.invoices.invoicesweb.service.number;
 import com.company.invoices.invoicesweb.entity.Invoice;
 import com.company.invoices.invoicesweb.repository.InvoiceRepositoryInterface;
 import com.company.invoices.invoicesweb.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//@Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
 
-    private static long lastNumber = 0L;
-
+    @Autowired
     private InvoiceRepositoryInterface invoiceRepository;
 
     public InvoiceRepositoryInterface getInvoiceRepository() {
@@ -25,9 +27,8 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
         return invoiceRepository.getById(number);
     }
 
-    public void createInvoice(Invoice invoice) {
-        invoice.setNumber(String.valueOf(++lastNumber));
-        invoiceRepository.create(invoice);
+    public Invoice createInvoice(Invoice invoice) {
+        return invoiceRepository.create(invoice);
     }
 
     @Override
